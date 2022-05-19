@@ -1,0 +1,41 @@
+<h1>My name is {{name}}</h1>
+<input type="text" [(ngModel)]="name">
+<button (click)="resetInput()">Reset</button>
+<h2>Hello {{name}}</h2>
+<h2 *ngIf="a > 15">Old</h2>
+<h2 *ngIf="a <= 15">Young</h2>
+
+<div *ngFor="let item of fruit; let i = index">
+    <li>{{i+1}} {{ item }}</li>
+</div>
+
+
+<br>
+<div *ngFor="let item of cat; let i = index">
+    <table>
+        <tr>
+            <th>Order</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Price</th>
+            <th>State</th>
+        </tr>
+        <tr>
+            <td>{{i + 1}}</td>
+            <td>{{item.name | lowercase}}</td>
+            <td [ngClass]="{'red-text': item.age > 3}">
+                {{item.age}}
+                <span *ngIf="item.age == 1; then onlyOne; else moreThanOne"></span>
+                <ng-template #onlyOne> year old</ng-template>
+                <ng-template #moreThanOne> years old</ng-template>
+
+            </td>
+            <td>
+                <span>{{item.state | onSold}}</span>
+
+            </td>
+            <td><span>{{item.price | currency:'USD'}}</span></td>
+        </tr>
+
+    </table>
+</div>

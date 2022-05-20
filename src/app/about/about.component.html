@@ -31,10 +31,10 @@
 
             </td>
             <td>
-                <span>{{item.state | onSold}}</span>
+                <span>{{item.state | onSold | uppercase}}</span>
 
             </td>
-            <td><span>{{item.price | currency:'USD'}}</span></td>
+            <td><span>{{item.price | currency:'USD' | uppercase}}</span></td>
         </tr>
 
     </table>
